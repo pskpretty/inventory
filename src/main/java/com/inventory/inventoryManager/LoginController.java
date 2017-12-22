@@ -10,19 +10,23 @@ import com.inventory.inventoryManager.bean.User;
 
 @Controller
 public class LoginController {
+	private final String pwd="pwd1234";
+	private final String userName="demo";
+	
 	@RequestMapping("/")
 	public String welcome() {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/save",method = RequestMethod.POST)
-	public String generateVRP(@RequestBody User jsonInput)  {
+	@RequestMapping(value = "/login",method = RequestMethod.POST)
+	public  String generateVRP(@RequestBody User jsonInput)  {
 		String message="";
-		if(jsonInput.getUsername()=="demo"&& jsonInput.getPassword()=="pwd1234")
+		if(jsonInput.getUsername()==userName&& jsonInput.getPassword()==pwd)
 			message="success";
 		else 
 			message="failure";
 		return message;
 	}
+
 	}
 
